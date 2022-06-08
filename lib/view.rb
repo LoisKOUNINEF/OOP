@@ -18,6 +18,10 @@ class View
       puts "#{item.product}"
       print "item price :"
       puts "#{item.price}"
+      print "item quantity :"
+      puts "#{item.quantity}"
+      print "item brand :"
+      puts "#{item.brand}"
     end
   end
 

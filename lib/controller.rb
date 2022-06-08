@@ -9,7 +9,7 @@ class Controller
   def create_item
     params = @view.create_item
     id = (Item.count_all) + 1
-    item = Item.new(id, params[:product], params[:price])
+    item = Item.new(id, params[:product], params[:price], params[:quantity], params[:brand])
     item.save_to_csv
   end
 
