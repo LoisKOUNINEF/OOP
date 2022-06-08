@@ -16,9 +16,9 @@ class View
     end
   end
 
-  def self.count(total)
-    puts "There are #{total} items."
-  end
+  # def self.count(total)
+  #   puts "There are #{total} items."
+  # end
 
   def ask_item_id
     puts "Which item would you like to delete ?"
