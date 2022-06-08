@@ -1,10 +1,13 @@
 class View
   def create_item
-    puts "Who is iteming ?"
+    puts "Whhat's the product ?"
     print ">"
     @product = gets.chomp
+    puts "Whats the price ?"
+    print ">"
+    @price = gets.chomp
 
-    return params = { product: @product }
+    return params = { product: @product, price: @price }
   end
 
   def self.all(all_items)
@@ -13,6 +16,8 @@ class View
       puts "#{item.id}"
       print "item product :"
       puts "#{item.product}"
+      print "item price :"
+      puts "#{item.price}"
     end
   end
 
