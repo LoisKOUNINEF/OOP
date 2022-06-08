@@ -12,8 +12,8 @@ class Router
 
     while true
       puts "Whatcha wanna do ?"
-      puts "1. I wanna item !"
-      puts "2. I wanna read items !"
+      puts "1. I wanna create item !"
+      puts "2. I wanna browse items !"
       # puts "3. I wanna know how many items have been written !"
       puts "4. I wanna delete a item !"
       puts "5. I wanna leave."
