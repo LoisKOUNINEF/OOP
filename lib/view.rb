@@ -1,13 +1,19 @@
 class View
   def create_item
-    puts "Whhat's the product ?"
+    puts "What's the product ?"
     print ">"
     @product = gets.chomp
     puts "Whats the price ?"
     print ">"
     @price = gets.chomp
+    puts "Whats the quantity ?"
+    print ">"
+    @quantity = gets.chomp
+    puts "Whats the brand ?"
+    print ">"
+    @brand = gets.chomp
 
-    return params = { product: @product, price: @price }
+    return params = { product: @product, price: @price, quantity: @quantity, brand: @brand }
   end
 
   def self.all(all_items)
