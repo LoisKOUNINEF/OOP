@@ -11,6 +11,7 @@ class Controller
     id = (Item.count_all) + 1
     item = Item.new(id, params[:name], params[:price], params[:quantity], params[:brand])
     item.save_to_csv
+    View.show(item)
   end
 
   def items_index
