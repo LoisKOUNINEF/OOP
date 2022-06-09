@@ -32,6 +32,6 @@ class ItemController
   def delete_by_id
     id = @view.ask_item_id
     Item.delete_by(id)
-    # @view.delete_confirm
+    # @view.confirm
   end
 end

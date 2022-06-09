@@ -11,10 +11,10 @@ class View
   def get_name
     @name
     loop do
-      puts "What's the name ?\n>"
+      puts "What's the item name ?\n>"
       @name = gets.chomp
       break if @name.length > 0 && @name.length <= 100
-      print "error message! (please make this helpful) - try again "
+      print "Name's should be between 1 and 100 characters. Please try again !"
     end
     return @name
   end
@@ -22,10 +22,10 @@ class View
   def get_price
     @price
     loop do
-      puts "What's the price ?\n>"
+      puts "What's the item price ?\n>"
       @price = gets.chomp
       break if @price.length > 0 && @price.length <= 10
-      print "error message! (please make this helpful) - try again "
+      print "Price isn't correct, is it ?"
     end
     return @price
   end
@@ -33,10 +33,10 @@ class View
   def get_quantity
     @quantity
     loop do
-      puts "What's the quantity ?\n>"
+      puts "How many of this item do you have in stock ?\n>"
       @quantity = gets.chomp
       break if @quantity.length > 0 && @quantity.length <= 4
-      print "error message! (please make this helpful) - try again "
+      print "Isn't it a bit too many to hold ?"
     end
     return @quantity
   end
@@ -44,10 +44,10 @@ class View
   def get_brand
     @brand
     loop do
-      puts "What's the brand ?\n>"
+      puts "What's the item brand ?\n>"
       @brand = gets.chomp
       break if @brand.length > 0 && @brand.length <= 30
-      print "error message! (please make this helpful) - try again "
+      print "Brand name should be between 1 and 30 characters. Please try again !"
     end
     return @brand
   end
@@ -64,7 +64,7 @@ class View
   # end
 
   def ask_item_id
-    puts "Which item would you like to pick?\n>"
+    puts "Which item would you like to pick ?\n>"
     id = gets.chomp.to_i
     return id
   end
