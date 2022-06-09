@@ -1,6 +1,12 @@
 class WelcomeView
   def self.get_input
     puts "Whatcha wanna do ?"
+    puts "1. Browse Items."
+    puts "2. Go to Admin Dashboard."
+  end
+
+  def self.get_admin_input
+    puts "Whatcha wanna do ?"
     puts "1. I wanna create item !"
     puts "2. I wanna browse items !"
     puts "3. I wanna see details of one item !"

@@ -1,11 +1,11 @@
-require_relative "controllers/controller"
+require_relative "controllers/item_controller"
 require_relative "controllers/welcome_controller"
 
 class Router
-  attr_accessor :controller, :welcome_controller
+  attr_accessor :item_controller, :welcome_controller
 
   def initialize
-    @controller = Controller.new
+    @item_controller = ItemController.new
     @welcome_controller = WelcomeController.new
   end
 
@@ -18,13 +18,13 @@ class Router
 
       case params
       when 1
-        @controller.create_item
+        @item_controller.create_item
       when 2
-        @controller.items_index
+        @item_controller.items_index
       when 3
-        @controller.show
+        @item_controller.show
       when 4
-        @controller.delete_by_id
+        @item_controller.delete_by_id
       when 5
         break
       else

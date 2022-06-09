@@ -1,9 +1,9 @@
 require_relative "../views/welcome_view"
 
 class WelcomeController
-  def initialize
-    @view = WelcomeView.new
-  end
+  # def initialize
+  #   @view = WelcomeView.new
+  # end
 
   def welcome
     WelcomeView.welcome

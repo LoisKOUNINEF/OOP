@@ -1,7 +1,7 @@
 require_relative "../models/item"
-require_relative "../views/view"
+require_relative "../views/item_view"
 
-class Controller
+class ItemController
   def initialize
     @view = View.new
   end
