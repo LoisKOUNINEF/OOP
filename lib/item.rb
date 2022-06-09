@@ -20,7 +20,7 @@ class Item
   def self.all
     item_temporary = []
     all_items = []
-    CSV.foreach("db/item.csv", headers: true, col_sep: ",") do |row|
+    CSV.foreach("db/item.csv") do |row|
       item_temporary = Item.new(row[0], row[1], row[2], row[3], row[4])
       all_items << item_temporary
     end
@@ -28,7 +28,7 @@ class Item
   end
 
   def self.find(id)
-    CSV.foreach(("./db/item.csv"), headers: true, col_sep: ",") do |row|
+    CSV.foreach("db/item.csv") do |row|
       if row[0].to_i === id.to_i
         item = Item.new(row[0], row[1], row[2], row[3], row[4])
         return item
@@ -36,19 +36,19 @@ class Item
     end
   end
 
-  # def self.count_all
-  #   rows = []
-  #   CSV.foreach("db/item.csv").with_index do |row, i|
-  #     rows << i + 1
-  #   end
-  #   return rows.pop || 0
-  # end
+  def self.count_all
+    rows = []
+    CSV.foreach("db/item.csv").with_index do |row, i|
+      rows << i + 1
+    end
+    return rows.pop || 0
+  end
 
   def self.delete_by(id)
     item_temporary = []
     all_items = []
     output = []
-    CSV.foreach("db/item.csv", headers: true, col_sep: ",") do |row|
+    CSV.foreach("db/item.csv") do |row|
       item_temporary = Item.new(row[0], row[1], row[2], row[3], row[4])
       all_items << item_temporary
     end
