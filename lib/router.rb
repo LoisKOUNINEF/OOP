@@ -20,6 +20,8 @@ class Router
       when 1
         @item_controller.items_index
       when 2
+        @item_controller.show
+      when 3
         @welcome_controller.check_pwd
         admin_pwd = gets.chomp.to_i
 
@@ -27,6 +29,7 @@ class Router
         when 1234
           @welcome_controller.admin_input
           admin_input = gets.chomp.to_i
+
           case admin_input
           when 1
             @item_controller.create_item
@@ -45,7 +48,7 @@ class Router
         else
           @welcome_controller.error
         end
-      when 3
+      when 4
         @welcome_controller.goodbye
         break
       else

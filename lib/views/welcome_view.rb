@@ -2,8 +2,9 @@ class WelcomeView
   def self.get_input
     puts "Whatcha wanna do ?"
     puts "1. Browse Items."
-    puts "2. Go to Admin Dashboard."
-    puts "3. Leave."
+    puts "2. I wanna see details of one item !"
+    puts "3. Go to Admin Dashboard."
+    puts "4. Leave."
   end
 
   def self.get_admin_input
