@@ -11,6 +11,7 @@ class Router
 
   def perform
     @welcome_controller.welcome
+
     while true
       @welcome_controller.input
       params = gets.chomp.to_i
