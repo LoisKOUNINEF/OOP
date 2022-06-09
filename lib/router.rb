@@ -2,7 +2,7 @@ require_relative "controllers/controller"
 require_relative "controllers/welcome_controller"
 
 class Router
-  attr_accessor :controller
+  attr_accessor :controller, :welcome_controller
 
   def initialize
     @controller = Controller.new
