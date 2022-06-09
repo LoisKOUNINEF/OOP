@@ -14,7 +14,7 @@ class Router
       puts "Whatcha wanna do ?"
       puts "1. I wanna create item !"
       puts "2. I wanna browse items !"
-      # puts "3. I wanna know how many items have been written !"
+      puts "3. I wanna see details of one item !"
       puts "4. I wanna delete a item !"
       puts "5. I wanna leave."
       params = gets.chomp.to_i
@@ -26,8 +26,8 @@ class Router
       when 2
         puts "Displaying ALL items."
         @controller.items_index
-        # when 3
-        #   puts "There are #{@controller.count_all} items."
+      when 3
+        @controller.show
       when 4
         @controller.delete_by_id
       when 5
