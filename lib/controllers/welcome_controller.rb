@@ -13,7 +13,19 @@ class WelcomeController
     WelcomeView.get_input
   end
 
+  def admin_input
+    WelcomeView.get_admin_input
+  end
+
   def error
     WelcomeView.error
+  end
+
+  def goodbye
+    WelcomeView.goodbye
+  end
+
+  def check_pwd
+    WelcomeView.get_pwd
   end
 end

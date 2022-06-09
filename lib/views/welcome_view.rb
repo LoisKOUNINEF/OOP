@@ -3,6 +3,7 @@ class WelcomeView
     puts "Whatcha wanna do ?"
     puts "1. Browse Items."
     puts "2. Go to Admin Dashboard."
+    puts "3. Leave."
   end
 
   def self.get_admin_input
@@ -20,5 +21,13 @@ class WelcomeView
 
   def self.welcome
     puts "Welcome to The Shop !"
+  end
+
+  def self.get_pwd
+    puts "Enter password : "
+  end
+
+  def self.goodbye
+    puts "Good Bye !"
   end
 end

@@ -18,14 +18,34 @@ class Router
 
       case params
       when 1
-        @item_controller.create_item
-      when 2
         @item_controller.items_index
+      when 2
+        @welcome_controller.check_pwd
+        admin_pwd = gets.chomp.to_i
+        case admin_pwd
+        when 1234
+          @welcome_controller.admin_input
+          admin_input = gets.chomp.to_i
+          case params
+          when 1
+            @item_controller.create_item
+          when 2
+            @item_controller.items_index
+          when 3
+            @item_controller.show
+          when 4
+            @item_controller.delete_by_id
+          when 5
+            @welcome_controller.goodbye
+            break
+          else
+            @welcome_controller.error
+          end
+        else
+          @welcome_controller.error
+        end
       when 3
-        @item_controller.show
-      when 4
-        @item_controller.delete_by_id
-      when 5
+        @welcome_controller.goodbye
         break
       else
         @welcome_controller.error
