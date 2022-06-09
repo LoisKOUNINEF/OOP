@@ -1,22 +1,18 @@
 require_relative "controllers/controller"
+require_relative "controllers/welcome_controller"
 
 class Router
   attr_accessor :controller
 
   def initialize
     @controller = Controller.new
+    @welcome_controller = WelcomeController.new
   end
 
   def perform
-    puts "Welcome to The Hacking Project !"
-
+    @welcome_controller.welcome
     while true
-      puts "Whatcha wanna do ?"
-      puts "1. I wanna create item !"
-      puts "2. I wanna browse items !"
-      puts "3. I wanna see details of one item !"
-      puts "4. I wanna delete a item !"
-      puts "5. I wanna leave."
+      @welcome_controller.input
       params = gets.chomp.to_i
 
       case params
@@ -31,7 +27,7 @@ class Router
       when 5
         break
       else
-        puts "Invalid choice. Please focus and try again."
+        @welcome_controller.error
       end
     end
   end
