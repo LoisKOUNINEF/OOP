@@ -13,7 +13,7 @@ class View
     loop do
       puts "What's the name ?\n>"
       @name = gets.chomp
-      break if @name.length >= 0 and @name.length <= 100
+      break if @name.length > 0 && @name.length <= 100
       print "error message! (please make this helpful) - try again "
     end
     return @name
@@ -24,7 +24,7 @@ class View
     loop do
       puts "What's the price ?\n>"
       @price = gets.chomp
-      break if @price.length >= 0 and @price.length <= 10
+      break if @price.length > 0 && @price.length <= 10
       print "error message! (please make this helpful) - try again "
     end
     return @price
@@ -35,7 +35,7 @@ class View
     loop do
       puts "What's the quantity ?\n>"
       @quantity = gets.chomp
-      break if @quantity.length >= 0 and @quantity.length <= 4
+      break if @quantity.length > 0 && @quantity.length <= 4
       print "error message! (please make this helpful) - try again "
     end
     return @quantity
@@ -46,7 +46,7 @@ class View
     loop do
       puts "What's the brand ?\n>"
       @brand = gets.chomp
-      break if @brand.length >= 0 and @brand.length <= 30
+      break if @brand.length > 0 && @brand.length <= 30
       print "error message! (please make this helpful) - try again "
     end
     return @brand
