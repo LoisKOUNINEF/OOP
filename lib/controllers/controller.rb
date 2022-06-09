@@ -1,5 +1,5 @@
-require "item"
-require "view"
+require_relative "../models/item"
+require_relative "../views/view"
 
 class Controller
   def initialize

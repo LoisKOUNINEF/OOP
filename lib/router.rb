@@ -1,4 +1,4 @@
-require "controller"
+require_relative "controllers/controller"
 
 class Router
   attr_accessor :controller
@@ -21,17 +21,14 @@ class Router
 
       case params
       when 1
-        puts "Have a nice item !"
         @controller.create_item
       when 2
-        puts "Displaying ALL items."
         @controller.items_index
       when 3
         @controller.show
       when 4
         @controller.delete_by_id
       when 5
-        puts "See ya !"
         break
       else
         puts "Invalid choice. Please focus and try again."
