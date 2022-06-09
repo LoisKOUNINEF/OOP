@@ -53,7 +53,8 @@ class View
   end
 
   def self.all(all_items)
-    all_items.each do |item|
+    sorted_items = all_items.sort_by! { |i| i.name.downcase }
+    sorted_items.each do |item|
       print "#{item.id}, Item name : #{item.name}.\n"
     end
   end
