@@ -14,19 +14,20 @@ class Router
 
     while true
       @welcome_controller.input
-      params = gets.chomp.to_i
+      user_input = gets.chomp.to_i
 
-      case params
+      case user_input
       when 1
         @item_controller.items_index
       when 2
         @welcome_controller.check_pwd
         admin_pwd = gets.chomp.to_i
+
         case admin_pwd
         when 1234
           @welcome_controller.admin_input
           admin_input = gets.chomp.to_i
-          case params
+          case admin_input
           when 1
             @item_controller.create_item
           when 2
