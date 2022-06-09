@@ -39,7 +39,15 @@ class Router
             when 3
               @item_controller.show
             when 4
-              @item_controller.delete_by_id
+              @welcome_controller.confirm
+              choice = gets.chomp
+
+              case choice
+              when "y"
+                @item_controller.delete_by_id
+              else
+                @welcome_controller.error
+              end
             when 5
               @welcome_controller.goodbye
               break

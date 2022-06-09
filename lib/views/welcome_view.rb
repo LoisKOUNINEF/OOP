@@ -31,4 +31,8 @@ class WelcomeView
   def self.goodbye
     puts "Good Bye !"
   end
+
+  def self.ask_confirm
+    puts "Are you sure ? (y/n)"
+  end
 end

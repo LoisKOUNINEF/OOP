@@ -28,4 +28,8 @@ class WelcomeController
   def check_pwd
     WelcomeView.get_pwd
   end
+
+  def confirm
+    WelcomeView.ask_confirm
+  end
 end
