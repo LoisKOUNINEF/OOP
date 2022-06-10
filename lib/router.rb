@@ -45,6 +45,8 @@ class Router
               case choice
               when "y"
                 @item_controller.delete_by_id
+              when "n"
+                @item_controller.admin_input
               else
                 @welcome_controller.error
               end
