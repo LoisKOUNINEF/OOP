@@ -64,8 +64,7 @@ class Router
     when 4
       confirm
     when 5
-      @welcome_controller.goodbye
-      abort
+      user_choice
     else
       @welcome_controller.error
     end

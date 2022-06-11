@@ -17,7 +17,7 @@ class WelcomeView
     print "\n2. I wanna browse items !"
     print "\n3. I wanna see details of one item !"
     print "\n4. I wanna delete a item !"
-    print "\n5. I wanna leave.\n>"
+    print "\n5. I wanna go back to main.\n>"
   end
 
   def self.error
