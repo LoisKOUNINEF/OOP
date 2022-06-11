@@ -30,7 +30,7 @@ class Router
       admin_pwd
     when 4
       @welcome_controller.goodbye
-      # break
+      abort
     else
       @welcome_controller.error
     end
@@ -65,7 +65,7 @@ class Router
       confirm
     when 5
       @welcome_controller.goodbye
-      # break
+      abort
     else
       @welcome_controller.error
     end
