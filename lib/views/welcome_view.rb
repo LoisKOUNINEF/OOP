@@ -1,5 +1,5 @@
 class WelcomeView
-  def self.get_input
+  def self.get_user_input
     print "\n"
     print "-" * 50
     print "\nWhatcha wanna do ?\n"

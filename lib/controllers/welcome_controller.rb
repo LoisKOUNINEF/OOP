@@ -9,8 +9,8 @@ class WelcomeController
     WelcomeView.welcome
   end
 
-  def input
-    WelcomeView.get_input
+  def user_input
+    WelcomeView.get_user_input
   end
 
   def admin_input
