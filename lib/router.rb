@@ -37,12 +37,13 @@ class Router
   end
 
   def admin_pwd
+    pwd = 1234
     @welcome_controller.check_pwd
     admin_pwd = gets.chomp.to_i
 
     while true
       case admin_pwd
-      when 1234
+      when pwd
         admin_dashboard
       else
         @welcome_controller.error
@@ -72,7 +73,7 @@ class Router
 
   def confirm_delete
     @welcome_controller.confirm
-    choice = gets.chomp
+    choice = gets.chomp.downcase
 
     case choice
     when "y"
