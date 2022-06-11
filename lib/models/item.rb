@@ -17,6 +17,19 @@ class Item
     end
   end
 
+  def update_csv
+    all_items = Item.all
+    CSV.open("db/item.csv", "w") do |csv|
+      all_items.each do |item|
+        if item.id.to_i == id.to_i
+          csv << [item.id, @name, @price, @quantity, @brand]
+        else
+          csv << [item.id, item.name, item.price, item.quantity, item.brand]
+        end
+      end
+    end
+  end
+
   def self.all
     item_temporary = []
     all_items = []
@@ -27,7 +40,7 @@ class Item
     return all_items
   end
 
-  def self.find(id)
+  def self.find_by(id)
     CSV.foreach("db/item.csv") do |row|
       if row[0].to_i === id.to_i
         item = Item.new(row[0], row[1], row[2], row[3], row[4])
@@ -45,13 +58,8 @@ class Item
   end
 
   def self.delete_by(id)
-    item_temporary = []
-    all_items = []
+    all_items = Item.all
     output = []
-    CSV.foreach("db/item.csv") do |row|
-      item_temporary = Item.new(row[0], row[1], row[2], row[3], row[4])
-      all_items << item_temporary
-    end
     output = all_items.delete_if { |item| item.id.to_i == id }
     CSV.open("db/item.csv", "w") do |csv|
       output.each do |item|

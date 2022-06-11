@@ -21,13 +21,22 @@ class ItemController
 
   def show
     id = @view.ask_item_id
-    item = Item.find(id)
+    item = Item.find_by(id)
     View.show(item)
   end
 
   # def count_all
   #   View.count(Item.count_all)
   # end
+
+  def update_item
+    id = @view.ask_item_id
+    item = Item.find_by(id)
+    params = @view.create_item
+    updated_item = Item.new(id, params[:name], params[:price], params[:quantity], params[:brand])
+    updated_item.update_csv
+    View.show(updated_item)
+  end
 
   def delete_by_id
     id = @view.ask_item_id

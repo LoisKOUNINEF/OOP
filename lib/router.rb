@@ -65,6 +65,8 @@ class Router
     when 4
       confirm_delete
     when 5
+      confirm_update
+    when 6
       user_choice
     else
       @welcome_controller.error
@@ -78,6 +80,20 @@ class Router
     case choice
     when "y"
       @item_controller.delete_by_id
+    when "n"
+      admin_dashboard
+    else
+      @welcome_controller.error
+    end
+  end
+
+  def confirm_update
+    @welcome_controller.confirm
+    choice = gets.chomp.downcase
+
+    case choice
+    when "y"
+      @item_controller.update_item
     when "n"
       admin_dashboard
     else
