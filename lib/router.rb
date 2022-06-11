@@ -62,7 +62,7 @@ class Router
     when 3
       @item_controller.show
     when 4
-      confirm
+      confirm_delete
     when 5
       user_choice
     else
@@ -70,7 +70,7 @@ class Router
     end
   end
 
-  def confirm
+  def confirm_delete
     @welcome_controller.confirm
     choice = gets.chomp
 
@@ -78,7 +78,7 @@ class Router
     when "y"
       @item_controller.delete_by_id
     when "n"
-      @item_controller.admin_input
+      admin_dashboard
     else
       @welcome_controller.error
     end
