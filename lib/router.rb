@@ -9,63 +9,83 @@ class Router
     @welcome_controller = WelcomeController.new
   end
 
-  def perform
+  def welcome
     @welcome_controller.welcome
 
     while true
-      @welcome_controller.input
-      user_input = gets.chomp.to_i
+      user_choice
+    end
+  end
 
-      case user_input
-      when 1
-        @item_controller.items_index
-      when 2
-        @item_controller.show
-      when 3
-        @welcome_controller.check_pwd
-        admin_pwd = gets.chomp.to_i
+  def user_choice
+    @welcome_controller.user_input
+    user_input = gets.chomp.to_i
 
-        while true
-          case admin_pwd
-          when 1234
-            @welcome_controller.admin_input
-            admin_input = gets.chomp.to_i
+    case user_input
+    when 1
+      @item_controller.items_index
+    when 2
+      @item_controller.show
+    when 3
+      admin_pwd
+    when 4
+      @welcome_controller.goodbye
+      # break
+    else
+      @welcome_controller.error
+    end
+  end
 
-            case admin_input
-            when 1
-              @item_controller.create_item
-            when 2
-              @item_controller.items_index
-            when 3
-              @item_controller.show
-            when 4
-              @welcome_controller.confirm
-              choice = gets.chomp
+  def admin_pwd
+    @welcome_controller.check_pwd
+    admin_pwd = gets.chomp.to_i
 
-              case choice
-              when "y"
-                @item_controller.delete_by_id
-              when "n"
-                @item_controller.admin_input
-              else
-                @welcome_controller.error
-              end
-            when 5
-              @welcome_controller.goodbye
-              break
-            else
-              @welcome_controller.error
-            end
-          else
-            @welcome_controller.error
-          end
-        end
-      when 4
-        @welcome_controller.goodbye
-        break
+    while true
+      case admin_pwd
+      when 1234
+        admin_dashboard
       else
         @welcome_controller.error
       end
     end
+  end
+
+  def admin_dashboard
+    @welcome_controller.admin_input
+    admin_input = gets.chomp.to_i
+
+    case admin_input
+    when 1
+      @item_controller.create_item
+    when 2
+      @item_controller.items_index
+    when 3
+      @item_controller.show
+    when 4
+      confirm
+    when 5
+      @welcome_controller.goodbye
+      # break
+    else
+      @welcome_controller.error
+    end
+  end
+
+  def confirm
+    @welcome_controller.confirm
+    choice = gets.chomp
+
+    case choice
+    when "y"
+      @item_controller.delete_by_id
+    when "n"
+      @item_controller.admin_input
+    else
+      @welcome_controller.error
+    end
+  end
+
+  def perform
+    welcome
   end
 end
