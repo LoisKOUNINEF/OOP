@@ -74,10 +74,8 @@ class View
   end
 
   def self.show(item)
-    if item.nil?
-      print "-" * 50
-      print "\nItem ID : #{item.id}, Item name : #{item.name}, Item price : #{item.price}, Item quantity : #{item.quantity}, Item brand : #{item.brand}.\n"
-      print "-" * 50
-    end
+    print "-" * 50
+    print "\nItem ID : #{item.id}, Item name : #{item.name}, Item price : #{item.price}, Item quantity : #{item.quantity}, Item brand : #{item.brand}.\n"
+    print "-" * 50
   end
 end
