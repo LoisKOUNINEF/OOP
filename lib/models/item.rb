@@ -41,11 +41,16 @@ class Item
   end
 
   def self.find_by(id)
-    CSV.foreach("db/item.csv") do |row|
-      if row[0].to_i === id.to_i
-        item = Item.new(row[0], row[1], row[2], row[3], row[4])
-        return item
+    @items = Item.count_all
+    if @items.to_i >= id.to_i
+      CSV.foreach("db/item.csv") do |row|
+        if row[0].to_i === id.to_i
+          item = Item.new(row[0], row[1], row[2], row[3], row[4])
+          return item
+        end
       end
+    else
+      return 0
     end
   end
 
