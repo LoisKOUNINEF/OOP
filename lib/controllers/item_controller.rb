@@ -22,7 +22,11 @@ class ItemController
   def show
     id = @view.ask_item_id
     item = Item.find_by(id)
-    View.show(item)
+    if item == 0
+      @view.invalid_id
+    else
+      View.show(item)
+    end
   end
 
   # def count_all
@@ -33,7 +37,7 @@ class ItemController
     id = @view.ask_item_id
     item = Item.find_by(id)
     if item == 0
-      View.show(item)
+      @view.invalid_id
     else
       params = @view.create_item
       updated_item = Item.new(id, params[:name], params[:price], params[:quantity], params[:brand])
@@ -44,6 +48,11 @@ class ItemController
 
   def delete_by_id
     id = @view.ask_item_id
-    Item.delete_by(id)
+    item = Item.find_by(id)
+    if item == 0
+      @view.invalid_id
+    else
+      Item.delete_by(id)
+    end
   end
 end

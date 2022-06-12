@@ -73,13 +73,13 @@ class View
     return id
   end
 
+  def invalid_id
+    print "Invalid Id"
+  end
+
   def self.show(item)
-    if item == 0
-      print "Invalid Id"
-    else
-      print "-" * 50
-      print "\nItem ID : #{item.id}, Item name : #{item.name}, Item price : #{item.price}, Item quantity : #{item.quantity}, Item brand : #{item.brand}.\n"
-      print "-" * 50
-    end
+    print "-" * 50
+    print "\nItem ID : #{item.id}, Item name : #{item.name}, Item price : #{item.price}, Item quantity : #{item.quantity}, Item brand : #{item.brand}.\n"
+    print "-" * 50
   end
 end
