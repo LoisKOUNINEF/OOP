@@ -32,10 +32,14 @@ class ItemController
   def update_item
     id = @view.ask_item_id
     item = Item.find_by(id)
-    params = @view.create_item
-    updated_item = Item.new(id, params[:name], params[:price], params[:quantity], params[:brand])
-    updated_item.update_csv
-    View.show(updated_item)
+    if item == 0
+      View.show(item)
+    else
+      params = @view.create_item
+      updated_item = Item.new(id, params[:name], params[:price], params[:quantity], params[:brand])
+      updated_item.update_csv
+      View.show(updated_item)
+    end
   end
 
   def delete_by_id
