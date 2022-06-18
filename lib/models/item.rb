@@ -33,7 +33,7 @@ class Item
   def self.all
     item_temporary = []
     all_items = []
-    CSV.foreach("db/item.csv") do |row|
+    CSV.foreach(("db/item.csv"), headers: true, col_sep: ",") do |row|
       item_temporary = self.new(row[0], row[1], row[2], row[3], row[4])
       all_items << item_temporary
     end

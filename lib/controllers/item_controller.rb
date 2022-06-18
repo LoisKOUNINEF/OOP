@@ -16,7 +16,7 @@ class ItemController
 
   def items_index
     items = Item.all
-    View.all(items)
+    View.sorted_from_highest(items)
   end
 
   def show

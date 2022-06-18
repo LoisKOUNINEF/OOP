@@ -62,6 +62,23 @@ class View
     end
   end
 
+  def self.sorted_from_lowest(all_items)
+    sorted_items = all_items.sort_by! { |i| i.price[1,2].to_i }
+        sorted_items.each do |item|
+      print "-" * 50
+      print "\nID : #{item.id}, Item name : #{item.name}.\n"
+    end
+  end
+
+  def self.sorted_from_highest(all_items)
+    sorted_items = all_items.sort_by! { |i| i.price[1,2].to_i }.reverse
+        sorted_items.each do |item|
+      print "-" * 50
+      print "\nID : #{item.id}, Item name : #{item.name}.\n"
+    end
+  end
+
+
   # def self.count(total)
   #   print "There are #{total} items."
   # end
