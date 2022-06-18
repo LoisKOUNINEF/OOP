@@ -47,6 +47,7 @@ class Router
         admin_dashboard
       else
         @welcome_controller.error
+        user_choice
       end
     end
   end
