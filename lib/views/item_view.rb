@@ -77,10 +77,23 @@ class View
     print "Invalid Id"
   end
 
-  def self.buy_item
-    print "\n how many do you want to purchase ?"
-    quantity = gets.chomp.to_i
-    return quantity
+  def self.buy_item(item)
+    print "\n Do you want to buy it ?(y/n)"
+    choice = gets.chomp
+    if choice == "y"
+      print "\n how many do you want to purchase ?"
+      quantity = gets.chomp.to_i
+    else
+      return quantity = 0
+    end
+    print "You are buying #{quantity} #{item.name} for #{item.price[1,2].to_i * quantity}$."
+    print "Do you want to proceed ? (y/n)"
+    confirm = gets.chomp
+    if confirm == "y"
+      return quantity
+    else
+      return quantity = 0
+    end
   end
 
   def self.show(item)
