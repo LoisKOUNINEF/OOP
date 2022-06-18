@@ -80,7 +80,7 @@ class View
   def self.buy_item(item)
     if item.quantity.to_i <= 0
       print "Sorry, we're out of #{item.name}."
-      quantity = 0
+      return quantity = 0
     else
       print "\n Do you want to buy it ?(y/n)"
       choice = gets.chomp
@@ -92,7 +92,7 @@ class View
           quantity = gets.chomp.to_i
         end
       else
-        quantity = 0
+        return quantity = 0
       end
       print "You are buying #{quantity} #{item.name} for #{item.price[1,2].to_i * quantity}$."
       print "Do you want to proceed ? (y/n)"
@@ -100,10 +100,9 @@ class View
       if confirm == "y"
         return quantity
       else
-        quantity = 0
+        return quantity = 0
       end
     end
-    return quantity
   end
 
   def self.show(item)
