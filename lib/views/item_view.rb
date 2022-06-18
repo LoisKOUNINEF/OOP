@@ -64,7 +64,7 @@ class View
 
   def self.sorted_lowest(all_items)
     sorted_items = all_items.sort_by! { |i| i.price[1,2].to_i }
-        sorted_items.each do |item|
+    sorted_items.each do |item|
       print "-" * 50
       print "\nID : #{item.id}, Item name : #{item.name}.\n"
     end
@@ -72,7 +72,7 @@ class View
 
   def self.sorted_highest(all_items)
     sorted_items = all_items.sort_by! { |i| i.price[1,2].to_i }.reverse
-        sorted_items.each do |item|
+    sorted_items.each do |item|
       print "-" * 50
       print "\nID : #{item.id}, Item name : #{item.name}.\n"
     end
