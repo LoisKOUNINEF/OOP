@@ -30,7 +30,6 @@ class Router
       @item_controller.items_from_highest
     when 4
       @item_controller.show
-      @item_controller.buy
     when 5
       admin_pwd
     when 6
