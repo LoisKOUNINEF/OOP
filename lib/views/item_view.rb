@@ -54,77 +54,77 @@ class View
     return @brand
   end
 
+  def self.index(item)
+    print "-" * 50
+    print "\nID : #{item.id}, Item name : #{item.name}.\n"
+  end
+
   def self.sorted_alphabet(all_items)
     sorted_items = all_items.sort_by! { |i| i.name.downcase }
     sorted_items.each do |item|
-      print "-" * 50
-      print "\nID : #{item.id}, Item name : #{item.name}.\n"
-    end
+     self.index(item)
+   end
+ end
+
+ def self.sorted_lowest(all_items)
+  sorted_items = all_items.sort_by! { |i| i.price[1,2].to_i }
+  sorted_items.each do |item|
+    self.index(item)
   end
+end
 
-  def self.sorted_lowest(all_items)
-    sorted_items = all_items.sort_by! { |i| i.price[1,2].to_i }
-    sorted_items.each do |item|
-      print "-" * 50
-      print "\nID : #{item.id}, Item name : #{item.name}.\n"
-    end
+def self.sorted_highest(all_items)
+  sorted_items = all_items.sort_by! { |i| i.price[1,2].to_i }.reverse
+  sorted_items.each do |item|
+    self.index(item)
   end
+end
 
-  def self.sorted_highest(all_items)
-    sorted_items = all_items.sort_by! { |i| i.price[1,2].to_i }.reverse
-    sorted_items.each do |item|
-      print "-" * 50
-      print "\nID : #{item.id}, Item name : #{item.name}.\n"
-    end
-  end
+def ask_item_id
+  print "-" * 50
+  print "\nWhich item would you like to pick ?\n>"
+  id = gets.chomp.to_i
+  return id
+end
 
+def invalid_id
+  print "Invalid Id"
+end
 
-  # def self.count(total)
-  #   print "There are #{total} items."
-  # end
+def self.buy_item(item)
+  if item.quantity.to_i <= 0
+    print "Sorry, we're out of #{item.name}."
+    return quantity = 0
 
-  def ask_item_id
-    print "-" * 50
-    print "\nWhich item would you like to pick ?\n>"
-    id = gets.chomp.to_i
-    return id
-  end
-
-  def invalid_id
-    print "Invalid Id"
-  end
-
-  def self.buy_item(item)
-    if item.quantity.to_i <= 0
-      print "Sorry, we're out of #{item.name}."
-      return quantity = 0
-    else
-      print "\n Do you want to buy it ?(y/n)"
-      choice = gets.chomp
-      if choice == "y"
-        print "\n how many do you want to purchase ?"
+  else
+    print "\n Do you want to buy it ?(y/n)"
+    choice = gets.chomp
+    if choice == "y"
+      print "\n how many do you want to purchase ?"
+      quantity = gets.chomp.to_i
+      while quantity > item.quantity.to_i
+        print "Thats too much ! We only have #{item.quantity} in stock."
         quantity = gets.chomp.to_i
-        while quantity > item.quantity.to_i
-          print "Thats too much ! We only have #{item.quantity} in stock."
-          quantity = gets.chomp.to_i
-        end
-      else
-        return quantity = 0
       end
-      print "You are buying #{quantity} #{item.name} for #{item.price[1,2].to_i * quantity}$."
-      print "Do you want to proceed ? (y/n)"
-      confirm = gets.chomp
-      if confirm == "y"
-        return quantity
-      else
-        return quantity = 0
-      end
+    else
+      print "No purchase."
+      return quantity = 0
+    end
+    print "You are buying #{quantity} #{item.name} for #{item.price[1,2].to_i * quantity}$."
+    print "Do you want to proceed ? (y/n)"
+    confirm = gets.chomp
+    if confirm == "y"
+      return quantity
+    else
+      print "No purchase."
+      return quantity = 0
     end
   end
+end
 
-  def self.show(item)
-    print "-" * 50
-    print "\nItem ID : #{item.id}, Item name : #{item.name}, Item price : #{item.price}, Item quantity : #{item.quantity}, Item brand : #{item.brand}.\n"
-    print "-" * 50
-  end
+def self.show(item)
+  print "-" * 50
+  print "\nItem ID : #{item.id}, Item name : #{item.name}, Item price : #{item.price}, Item quantity : #{item.quantity}, Item brand : #{item.brand}.\n"
+  print "-" * 50
+end
 end
