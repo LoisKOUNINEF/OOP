@@ -26,6 +26,8 @@ class ItemController
       @view.invalid_id
     else
       View.show(item)
+      quantity = View.buy_item
+      Item.buy_item(item, quantity)
     end
   end
 

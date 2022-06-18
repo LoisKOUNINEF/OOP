@@ -77,6 +77,12 @@ class View
     print "Invalid Id"
   end
 
+  def self.buy_item
+    print "\n how many do you want to purchase ?"
+    quantity = gets.chomp.to_i
+    return quantity
+  end
+
   def self.show(item)
     print "-" * 50
     print "\nItem ID : #{item.id}, Item name : #{item.name}, Item price : #{item.price}, Item quantity : #{item.quantity}, Item brand : #{item.brand}.\n"
