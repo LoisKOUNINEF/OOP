@@ -5,9 +5,10 @@ class View
     get_price
     get_quantity
     get_brand
+    get_description
     print "-" * 50
 
-    return params = { name: @name, price: @price, quantity: @quantity, brand: @brand }
+    return params = { name: @name, price: @price, quantity: @quantity, brand: @brand, description: @description }
   end
 
   def get_name
@@ -52,6 +53,18 @@ class View
       print "\nBrand name should be between 1 and 30 characters. Please try again !"
     end
     return @brand
+  end
+
+
+  def get_description
+    @description
+    loop do
+      print "\nWhat's the item description ?\n>"
+      @description = gets.chomp
+      break if @description.length > 10 && @description.length <= 150
+      print "\ndescription should be between 10 and 150 characters. Please try again !"
+    end
+    return @description
   end
 
   def self.index(item)
@@ -124,7 +137,7 @@ end
 
 def self.show(item)
   print "-" * 50
-  print "\nItem ID : #{item.id}, Item name : #{item.name}, Item price : #{item.price}, Item quantity : #{item.quantity}, Item brand : #{item.brand}.\n"
+  print "\nItem ID : #{item.id}, Item name : #{item.name}, Item price : #{item.price}, Item quantity : #{item.quantity}, Item brand : #{item.brand}.\nItem description : #{item.description}\n"
   print "-" * 50
 end
 end

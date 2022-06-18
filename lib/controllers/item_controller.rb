@@ -9,7 +9,7 @@ class ItemController
   def create_item
     params = @view.create_item
     id = (Item.count_all) + 1
-    item = Item.new(id, params[:name], params[:price], params[:quantity], params[:brand])
+    item = Item.new(id, params[:name], params[:price], params[:quantity], params[:brand], params[:description])
     item.save_to_csv
     View.show(item)
   end
@@ -52,7 +52,7 @@ class ItemController
       @view.invalid_id
     else
       params = @view.create_item
-      updated_item = Item.new(id, params[:name], params[:price], params[:quantity], params[:brand])
+      updated_item = Item.new(id, params[:name], params[:price], params[:quantity], params[:brand], params[:description])
       updated_item.update_csv
       View.show(updated_item)
     end
