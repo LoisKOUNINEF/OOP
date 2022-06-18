@@ -37,13 +37,13 @@ class ItemController
     else
       View.show(item)
       quantity = View.buy_item(item)
-      Item.buy_item(item, quantity)
+      if quantity == 0
+        return
+      else
+        Item.buy_item(item, quantity)
+      end
     end
   end
-
-  # def count_all
-  #   View.count(Item.count_all)
-  # end
 
   def update_item
     id = @view.ask_item_id
