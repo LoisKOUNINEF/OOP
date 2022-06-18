@@ -14,9 +14,19 @@ class ItemController
     View.show(item)
   end
 
-  def items_index
+  def items_alphabet_order
     items = Item.all
-    View.sorted_from_highest(items)
+    View.sorted_alphabet(items)
+  end
+
+  def items_from_lowest
+    items = Item.all
+    View.sorted_lowest(items)
+  end
+
+  def items_from_highest
+    items = Item.all
+    View.sorted_highest(items)
   end
 
   def show

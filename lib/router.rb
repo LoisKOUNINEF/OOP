@@ -23,12 +23,17 @@ class Router
 
     case user_input
     when 1
-      @item_controller.items_index
+      @item_controller.items_alphabet_order
     when 2
-      @item_controller.show
+      @item_controller.items_from_lowest
     when 3
-      admin_pwd
+      @item_controller.items_from_highest
     when 4
+      @item_controller.show
+      @item_controller.buy
+    when 5
+      admin_pwd
+    when 6
       @welcome_controller.goodbye
       abort
     else
@@ -60,14 +65,18 @@ class Router
     when 1
       @item_controller.create_item
     when 2
-      @item_controller.items_index
+      @item_controller.items_alphabet_order
     when 3
-      @item_controller.show
+      @item_controller.items_from_lowest
     when 4
-      confirm_delete
+      @item_controller.items_from_highest
     when 5
-      confirm_update
+      @item_controller.show
     when 6
+      confirm_delete
+    when 7
+      confirm_update
+    when 8
       @welcome_controller.goodbye
       abort
     else

@@ -3,10 +3,12 @@ class WelcomeView
     print "\n"
     print "-" * 50
     print "\nWhatcha wanna do ?\n"
-    print "\n1. Browse Items."
-    print "\n2. I wanna see details of one item !"
-    print "\n3. Go to Admin Dashboard."
-    print "\n4. Leave.\n>"
+    print "\n1. Browse Items sorted alphabetically ."
+    print "\n2. Browse Items sorted from lowest price to highest ."
+    print "\n3. Browse Items sorted from highest price to lowest ."
+    print "\n4. I wanna see details of one item !"
+    print "\n5. Go to Admin Dashboard."
+    print "\n6. Leave.\n>"
   end
 
   def self.get_admin_input
@@ -14,11 +16,13 @@ class WelcomeView
     print "-" * 50
     print "\nWhatcha wanna do ?"
     print "\n1. I wanna create item !"
-    print "\n2. I wanna browse items !"
-    print "\n3. I wanna see details of one item !"
-    print "\n4. I wanna delete an item !"
-    print "\n5. I wanna update an item !"
-    print "\n6. I wanna Leave.\n>"
+    print "\n2. I wanna browse items alphabetically !"
+    print "\n3. I wanna browse items from lowest price to highest !"
+    print "\n4. I wanna browse items from highest price to lowest !"
+    print "\n5. I wanna see details of one item !"
+    print "\n6. I wanna delete an item !"
+    print "\n7. I wanna update an item !"
+    print "\n8. I wanna Leave.\n>"
   end
 
   def self.error

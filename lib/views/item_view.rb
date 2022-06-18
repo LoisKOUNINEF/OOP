@@ -54,7 +54,7 @@ class View
     return @brand
   end
 
-  def self.all(all_items)
+  def self.sorted_alphabet(all_items)
     sorted_items = all_items.sort_by! { |i| i.name.downcase }
     sorted_items.each do |item|
       print "-" * 50
@@ -62,7 +62,7 @@ class View
     end
   end
 
-  def self.sorted_from_lowest(all_items)
+  def self.sorted_lowest(all_items)
     sorted_items = all_items.sort_by! { |i| i.price[1,2].to_i }
         sorted_items.each do |item|
       print "-" * 50
@@ -70,7 +70,7 @@ class View
     end
   end
 
-  def self.sorted_from_highest(all_items)
+  def self.sorted_highest(all_items)
     sorted_items = all_items.sort_by! { |i| i.price[1,2].to_i }.reverse
         sorted_items.each do |item|
       print "-" * 50
