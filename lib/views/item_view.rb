@@ -78,22 +78,32 @@ class View
   end
 
   def self.buy_item(item)
-    print "\n Do you want to buy it ?(y/n)"
-    choice = gets.chomp
-    if choice == "y"
-      print "\n how many do you want to purchase ?"
-      quantity = gets.chomp.to_i
+    if item.quantity.to_i <= 0
+      print "Sorry, we're out of #{item.name}."
+      quantity = 0
     else
-      return quantity = 0
+      print "\n Do you want to buy it ?(y/n)"
+      choice = gets.chomp
+      if choice == "y"
+        print "\n how many do you want to purchase ?"
+        quantity = gets.chomp.to_i
+        while quantity > item.quantity.to_i
+          print "Thats too much ! We only have #{item.quantity} in stock."
+          quantity = gets.chomp.to_i
+        end
+      else
+        quantity = 0
+      end
+      print "You are buying #{quantity} #{item.name} for #{item.price[1,2].to_i * quantity}$."
+      print "Do you want to proceed ? (y/n)"
+      confirm = gets.chomp
+      if confirm == "y"
+        return quantity
+      else
+        quantity = 0
+      end
     end
-    print "You are buying #{quantity} #{item.name} for #{item.price[1,2].to_i * quantity}$."
-    print "Do you want to proceed ? (y/n)"
-    confirm = gets.chomp
-    if confirm == "y"
-      return quantity
-    else
-      return quantity = 0
-    end
+    return quantity
   end
 
   def self.show(item)
