@@ -18,10 +18,8 @@ class Router
   end
 
   def user_choice
-    @welcome_controller.user_input
-    user_input = gets.chomp.to_i
 
-    case user_input
+    case @welcome_controller.user_input
     when 1
       @item_controller.items_alphabet_order
     when 2
@@ -42,25 +40,20 @@ class Router
 
   def admin_pwd
     pwd = 1234
-    @welcome_controller.check_pwd
-    admin_pwd = gets.chomp.to_i
-
-    while true
-      case admin_pwd
-      when pwd
+    case @welcome_controller.check_pwd
+    when pwd
+      while true
         admin_dashboard
-      else
-        @welcome_controller.error
-        user_choice
       end
+    else
+      @welcome_controller.error
+      user_choice
     end
   end
 
   def admin_dashboard
-    @welcome_controller.admin_input
-    admin_input = gets.chomp.to_i
 
-    case admin_input
+    case @welcome_controller.admin_input
     when 1
       @item_controller.create_item
     when 2
@@ -84,10 +77,7 @@ class Router
   end
 
   def confirm_delete
-    @welcome_controller.confirm
-    choice = gets.chomp.downcase
-
-    case choice
+    case @welcome_controller.confirm
     when "y"
       @item_controller.delete_by_id
     when "n"
@@ -98,10 +88,7 @@ class Router
   end
 
   def confirm_update
-    @welcome_controller.confirm
-    choice = gets.chomp.downcase
-
-    case choice
+    case @welcome_controller.confirm
     when "y"
       @item_controller.update_item
     when "n"

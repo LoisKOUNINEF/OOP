@@ -9,6 +9,7 @@ class WelcomeView
     print "\n4. I wanna see details of one item !"
     print "\n5. Go to Admin Dashboard."
     print "\n6. Leave.\n>"
+    return gets.chomp.to_i
   end
 
   def self.get_admin_input
@@ -23,6 +24,7 @@ class WelcomeView
     print "\n6. I wanna delete an item !"
     print "\n7. I wanna update an item !"
     print "\n8. I wanna Leave.\n>"
+    return gets.chomp.to_i
   end
 
   def self.error
@@ -38,6 +40,7 @@ class WelcomeView
   def self.get_pwd
     print "#" * 50
     print "\nEnter password : "
+    return gets.chomp.to_i
   end
 
   def self.goodbye
@@ -49,5 +52,6 @@ class WelcomeView
   def self.ask_confirm
     print "#" * 50
     print "\nAre you sure ? (y/n)\n"
+    return gets.chomp.downcase
   end
 end
