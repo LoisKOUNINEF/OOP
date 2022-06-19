@@ -13,7 +13,7 @@ class Item
   end
 
   def save_to_csv
-    CSV.open("db/item.csv", "a") do |csv|
+    CSV.open("db/item.csv", "a", {:row_sep => "\r\n"}) do |csv|
       csv << [@id, @name, @price, @quantity, @brand, @description]
     end
   end
