@@ -101,12 +101,12 @@ def ask_item_id
 end
 
 def invalid_id
-  print "Invalid Id"
+  print "\nInvalid Id"
 end
 
 def self.buy_item(item)
   if item.quantity.to_i <= 0
-    print "Sorry, we're out of #{item.name}."
+    print "\nSorry, we're out of #{item.name}."
     return quantity = 0
 
   else
@@ -116,20 +116,21 @@ def self.buy_item(item)
       print "\n how many do you want to purchase ?"
       quantity = gets.chomp.to_i
       while quantity > item.quantity.to_i
-        print "Thats too much ! We only have #{item.quantity} in stock."
+        print "\nThats too much ! We only have #{item.quantity} in stock."
+        print "\n how many do you want to purchase ?"
         quantity = gets.chomp.to_i
       end
     else
-      print "No purchase."
+      print "\nNo purchase."
       return quantity = 0
     end
-    print "You are buying #{quantity} #{item.name} for #{item.price[1,2].to_i * quantity}$."
-    print "Do you want to proceed ? (y/n)"
+    print "\nYou are buying #{quantity} #{item.name} for #{item.price[1,2].to_i * quantity}$."
+    print "\nDo you want to proceed ? (y/n)"
     confirm = gets.chomp
     if confirm == "y"
       return quantity
     else
-      print "No purchase."
+      print "\nNo purchase."
       return quantity = 0
     end
   end
