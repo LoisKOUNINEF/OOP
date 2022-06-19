@@ -3,9 +3,9 @@ require "./item.rb"
 class Shoe < Item
   attr_accessor :size
 
-  def initialize(shoes_id, shoes_name, shoes_price, shoes_quantity, shoes_brand, shoes_description, shoes_size)
-    super(shoes_id, shoes_name, shoes_price, shoes_quantity, shoes_brand)
-    @size = shoes_size
+  def initialize(shoe_id, shoe_name, shoe_price, shoe_quantity, shoe_brand, shoe_description, shoe_size)
+    super(shoe_id, shoe_name, shoe_price, shoe_quantity, shoe_brand, shoe_description)
+    @size = shoe_size
   end
 
 end
