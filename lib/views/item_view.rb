@@ -55,7 +55,6 @@ class View
     return @brand
   end
 
-
   def get_description
     @description
     loop do
@@ -66,6 +65,17 @@ class View
     end
     return @description
   end
+
+  # def get_size
+  #   @size
+  #   loop do
+  #     print "\nWhat's the item size ?\n>"
+  #     @size = gets.chomp
+  #     break if @size.to_i <= 0 && @size.to_i = null
+  #     print "\nsize should be a number greater than 0. Please try again !"
+  #   end
+  #   return @size
+  # end
 
   def self.index(item)
     print "-" * 50
